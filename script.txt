@@ -1,0 +1,62 @@
+Hello Kishor
+Good Morning
+
+I am Subba Reddy. I have worked on the Payment Module of the Online Shop Project.
+
+I have created a microservice(payment-service) using Spring Boot and Spring Cloud.
+
+The "Payment-Service" has been configured to run on port 9093. It registers with the Discovery Server
+by the same name that is "Payment-Service". 
+
+This service has been configured to use FeignClient to interact or communicate with the other 
+microservices, for suppose, the DB Microservice.
+
+One of the REST ENDPOINT is configured to accept the Cart Details, which would then render the payment 
+form.
+
+The payment form has three payment options Credit Card, Debit Card and Netbanking.
+
+Depending on the user's selection the payment form inputs would be rendered. The "Credit card"
+option is selected on page load by default.
+
+Once the user enters the card details on the payment form and progresses with the payment, all the
+details are sent to the other REST Endpoint which process the user's payment. And returns the status of
+transaction. If the transaction is successful, we send the data to CRUD microservice which in turn
+would save the records in the "ProductsCustomers" table.
+
+Disclaimer
+==========
+
+1. I have built the front-end for the "Payment-Service" using HTML, CSS and JavaScript.
+
+2. As we could not integrate the cart service and test, I have simulated the data model of the cart 
+and have created a form for the very purpose.
+{
+"customerId": 12345,
+"amount": 3500,
+"productList" : [
+    {
+        "productId": 12,
+        "productName": "Samsung",
+        "itemId": 100,
+        "price": 50
+    },
+    {
+        "productId": 13,
+        "productName": "Nokia",
+        "itemId": 100,
+        "price": 50
+    },
+    {
+        "productId": 14,
+        "productName": "Apple",
+        "itemId": 100,
+        "price": 50
+    }
+  ]
+}
+3. Rest of the team had built using Angular for the front-end but I decided to take this approach as the 
+learning curve was steep for me.
+
+4. I am simulating the success/failure scenarios for payments as we could not integrate with the common 
+CRUD microservice.
